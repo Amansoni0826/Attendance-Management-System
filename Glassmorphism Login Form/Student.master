@@ -1,0 +1,85 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Student.master.cs" Inherits="Student" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.3/jquery-ui.min.js" integrity="sha512-Ww1y9OuQ2kehgVWSD/3nhgfrb424O3802QYP/A5gPXoM4+rRjiKrjHdGxQKrMGQykmsJ/86oGdHszfcVgUr4hA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.3/jquery-ui.min.js" integrity="sha512-Ww1y9OuQ2kehgVWSD/3nhgfrb424O3802QYP/A5gPXoM4+rRjiKrjHdGxQKrMGQykmsJ/86oGdHszfcVgUr4hA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.date-picker').datepicker({
+                changeMonth: true,
+                changeYear: true,
+                showButtonPanel: true,
+                dateFormat: 'yy-mm',
+                onClose: function (dateText, inst) {
+                    var month = $("#ui-datepicker-div .ui-datepicker-month:selected").val();
+                    var year = $("#ui-datepicker-div .ui-datepicker-year:selected").val();
+                    $(this).datepicker('setDate', new Date(Year, month, 1));
+                }
+            });
+        });
+    </script>
+    <style>
+        .ui-datepicker-calender {
+            display: none;
+        }
+    </style>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <table align="center">
+                <tr style="width: 1200px; color: aqua; height: 150px">
+                    <td>
+                        <%--<asp:Image />--%>
+                    </td>
+                </tr>
+                <tr style="border-width: 8px; border-color: #666666; width: 1200px; color: #666666" height="60px" bgcolor="#c547ff">
+                    <td>
+                        <table align="center" cellpadding="8">
+                            <tr style="border-color: #666666;">
+                                <td>
+                                    <asp:Button runat="server" ID="BtnHome" Text="Home Page" Height="49px" Width="171px"
+                                        Font-Bold="true" Font-Size="Medium" CausesValidation="false" BorderColor="#666666" BackColor="snow" OnClick="BtnHome_Click" />
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <asp:Button runat="server" ID="BtnAttendance" Text="Attendance" Height="49px" Width="171px"
+                                        Font-Bold="true" Font-Size="Medium" CausesValidation="false" BorderColor="#666666" BackColor="White" OnClick="BtnAttendance_Click" />
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <asp:Button runat="server" ID="BtnLogout" Text="Logout" Height="49px" Width="171px"
+                                        Font-Bold="true" Font-Size="Medium" CausesValidation="false" BorderColor="#666666" BackColor="white" OnClick="BtnLogout_Click" />
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <table align="center" width="1200px">
+                <tr style="width: 1200px; color: gray; height: 20px;" bgcolor="Gray">
+                    <td style="width: 1100px; height: 25px; background-color: gray; text-align: center; color: white;">
+                        <asp:Label runat="server" Text="Attendance System" ForeColor="White" Font-Size="Medium" Font-Bold="true"></asp:Label>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>
+</html>
